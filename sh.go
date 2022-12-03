@@ -58,5 +58,7 @@ func GetUnique[T constraints.Ordered](input []T) []T {
 		result = append(result, k)
 	}
 
+	slices.Sort(result)
+
 	return result
 }
