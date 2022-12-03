@@ -1,4 +1,4 @@
-package sh
+package parse
 
 import (
 	"errors"
@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-// ParseFileAsStr parses file with given filename and returns an array of
+// FileAsStr parses file with given filename and returns an array of
 // strings. Will return an error if the file is empty or if reading file
 // failed.
-func ParseFileAsStr(filename string) ([]string, error) {
+func FileAsStr(filename string) ([]string, error) {
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		return []string{}, err
@@ -24,12 +24,12 @@ func ParseFileAsStr(filename string) ([]string, error) {
 	return strings.Split(strings.TrimSpace(string((data))), "\n"), nil
 }
 
-// ParseFileAsInt parses file with given filename and returns an array of ints.
+// FileAsInt parses file with given filename and returns an array of ints.
 // Will return an error if the file is empty, if reading file failed or if each
 // line could not be parsed to int.
-func ParseFileAsInt(filename string) ([]int, error) {
+func FileAsInt(filename string) ([]int, error) {
 	vals := []int{}
-	lines, err := ParseFileAsStr(filename)
+	lines, err := FileAsStr(filename)
 	if err != nil {
 		return vals, err
 	}
