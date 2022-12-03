@@ -7,7 +7,7 @@ import (
 )
 
 func TestParseFileAsInt(t *testing.T) {
-	filename := "./testdata/numbers.txt"
+	filename := "../testdata/numbers.txt"
 
 	_, err := parse.FileAsInt(filename)
 	if err != nil {
@@ -16,7 +16,7 @@ func TestParseFileAsInt(t *testing.T) {
 }
 
 func TestParseFileAsStr(t *testing.T) {
-	filename := "./testdata/strs.txt"
+	filename := "../testdata/strs.txt"
 
 	_, err := parse.FileAsStr(filename)
 	if err != nil {
