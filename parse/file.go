@@ -21,7 +21,7 @@ func FileAsStr(filename string) ([]string, error) {
 		return []string{}, errors.New("empty file")
 	}
 
-	return strings.Split(strings.TrimSpace(string((data))), "\n"), nil
+	return strings.Split(string(data), "\n"), nil
 }
 
 // FileAsInt parses file with given filename and returns an array of ints.
@@ -35,6 +35,9 @@ func FileAsInt(filename string) ([]int, error) {
 	}
 
 	for _, l := range lines {
+		if len(l) == 0 {
+			continue
+		}
 		val, err := strconv.Atoi(l)
 		if err != nil {
 			return vals, fmt.Errorf("could not parse %s to int: %v", l, err)
