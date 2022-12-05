@@ -28,7 +28,7 @@ lint: ${GOLANGCI_LINT}
 help:
 	@echo "📓 Run one of the following commands using make <command>"
 	@echo
-	@cat Makefile | grep "^##" | column -t -s ":" | sed "s/##/  /"
+	@cat Makefile | grep "^##" | sort | column -t -s ":" | sed "s/##/  /"
 	@echo
 
 ## doc: start documentation server
